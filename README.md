@@ -1,5 +1,5 @@
 # DST-NET
-本项目基于语义分割网络，使用中分辨率时序遥感影像提取农田地块的空间分布情况。农田地块相较于一般的分割对象，有一定的时序信息，因此本项目基于论文《Semantic Segmentation Based on Temporal  Features: Learning of Temporal–Spatial  Information From Time-Series SAR  Images for Paddy Rice Mapping》（IEEE TGRS SCI 1区TOP，2022）中的TFBS网络进行复现与改造，提取目标物从水稻更改为农田。针对这一提取目标，本项目针对该网络的具体改造如下:
+本项目基于语义分割网络，使用中分辨率时序遥感影像提取农田地块的空间分布情况。农田地块相较于一般的分割对象，有一定的时序信息，因此本项目基于论文《Semantic Segmentation Based on Temporal  Features: Learning of Temporal–Spatial  Information From Time-Series SAR  Images for Paddy Rice Mapping》（IEEE TGRS SCI 1区TOP，2022）中的TFBS网络进行复现与改造，提取目标物从水稻更改为农田。针对这一提取目标，本项目针对该网络的具体改造如下:\n
 ★ 使用ConvLSTM模块替换原文中的LSTM模块。
 原文使用学习LSTM学习水稻的季相节律信息，本项目使用ConvLSTM学习农田的季相节律信息。ConvLSTM在每个时间步使用卷积运算来处理输入数据，因此可以更好地捕捉图像数据中的空间结构，避免NODATA值影响。
 ★ 使用Res-U-net基础网络替换原文中的U-net。
