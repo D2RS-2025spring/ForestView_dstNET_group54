@@ -9,6 +9,9 @@ Res-U-Net的优势在于通过残差连接解决了深层网络中的梯度消�
 ★ 将模型的损失函数更换为<font color=DC143C>focal loss</font>。  
 多篇论文指出，该损失函数可以有效提升对不平衡样本的学习能力。  
 
+原文链接：https://ieeexplore.ieee.org/document/9506988
+原文代码：https://github.com/younglimpo/TFBSmodel
+
 # 模型架构
 ![模型架构](modelflow/模型架构.png)
 
