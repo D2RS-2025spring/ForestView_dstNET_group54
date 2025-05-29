@@ -9,7 +9,7 @@ Res-U-Net的优势在于通过残差连接解决了深层网络中的梯度消�
 ★ 将模型的损失函数更换为<font color=DC143C>focal loss</font>。  
 多篇论文指出，该损失函数可以有效提升对不平衡样本的学习能力。  
 
-原文链接：https://ieeexplore.ieee.org/document/9506988
+原文链接：https://ieeexplore.ieee.org/document/9506988  
 原文代码：https://github.com/younglimpo/TFBSmodel
 
 # 模型架构
@@ -17,9 +17,9 @@ Res-U-Net的优势在于通过残差连接解决了深层网络中的梯度消�
 
 # 数据处理流程（样本处理流程）
 1. 从谷歌地球工程平台(GEE)下载时序哨兵2号遥感影像（2021年4月-9月，每月使用中值合成一幅影像，研究区：内蒙古鄂托克前旗）,并进行重投影工作（UTM 50N）;
-2. 使用代码merge.py对获取的影像进行波段融合；
+2. 使用代码data_merge.py对获取的影像进行波段融合；
 3. 在arcgis中制作渔网划分训练集与验证集矢量;
-4. 先使用固定窗口（掩膜.py）裁剪，再使用滑动窗口裁剪(clip.py);
+4. 先使用固定窗口（data_mask.py）裁剪，再使用滑动窗口裁剪(data_clip.py);
 5. 使用data_aug.py对训练集和验证集进行样本扩增；
 
 # 人员分工
