@@ -1,13 +1,16 @@
 # DST-NET
 本项目基于语义分割网络，使用中分辨率时序遥感影像提取农田地块的空间分布情况。农田地块相较于一般的分割对象，有一定的时序信息，因此本项目基于论文《Semantic Segmentation Based on Temporal  Features: Learning of Temporal–Spatial  Information From Time-Series SAR  Images for Paddy Rice Mapping》（IEEE TGRS SCI 1区TOP，2022）中的TFBS网络进行复现与改造，提取目标物从水稻更改为农田。针对这一提取目标，本项目针对该网络的具体改造如下:  
-★ 使用ConvLSTM模块替换原文中的LSTM模块。  
+★ 使用<font color=DC143C>ConvLSTM</font>模块替换原文中的LSTM模块。  
 原文使用学习LSTM学习水稻的季相节律信息，本项目使用ConvLSTM学习农田的季相节律信息。ConvLSTM在每个时间步使用卷积运算来处理输入数据，因此可以更好地捕捉图像数据中的空间结构，避免NODATA值影响。  
-★ 使用Res-U-net基础网络替换原文中的U-net。  
+★ 使用<font color=DC143C>Res-U-net</font>基础网络替换原文中的U-net。  
 Res-U-Net的优势在于通过残差连接解决了深层网络中的梯度消失问题，使得网络在训练过程中更加稳定，能够更好地捕捉复杂的特征。  
-★ 添加了基于空洞可分离卷积的空间注意力机制。  
+★ 添加了<font color=DC143C>基于空洞可分离卷积的空间注意力机制</font>。  
 这种机制可以提升模型感受野和对地块形状的感知能力。  
-★ 将模型的损失函数更换为focal loss。  
+★ 将模型的损失函数更换为<font color=DC143C>focal loss</font>。  
 多篇论文指出，该损失函数可以有效提升对不平衡样本的学习能力。  
+
+# 模型架构
+
 
 # 数据处理流程（样本处理流程）
 1. 从谷歌地球工程平台(GEE)下载时序哨兵2号遥感影像（2021年4月-9月，每月使用中值合成一幅影像，研究区：内蒙古鄂托克前旗）,并进行重投影工作（UTM 50N）;
